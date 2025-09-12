@@ -1,19 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./style.css" />
+    <!-- BOOTSTRAP ICON -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
     <div>
-        <div style="display: flex; align-items: center;flex-direction: column">
-            <div><h1 class="font" style="color: #1A409E;">
-                Tin tức sự kiện
-            </h1></div>
-            <div><p class="font" style="color: #535876;">Khoa học xã hội, nhân văn và giáo dục trong bối cảnh chuyển đổi số</p></div>
+      <div style="display: flex; align-items: center; flex-direction: column">
+        <div><h1 class="font" style="color: #1a409e">Tin tức sự kiện</h1></div>
+        <div>
+          <p class="font" style="color: #535876">
+            Khoa học xã hội, nhân văn và giáo dục trong bối cảnh chuyển đổi số
+          </p>
         </div>
+        <div
+          style="
+            border: #1a699e solid 2px;
+            width: 100px;
+            border-radius: 10px;
+            margin-top: 20px;
+          "
+        ></div>
+      </div>
+      <div style="display: flex; justify-content: center">
+        <div style="width: 400px; height: 300px; margin: 20px">
+          <div>
+            <img
+              src="rocknroll.png"
+              alt=""
+              style="
+                max-height: 50%;
+                max-width: 400px;
+                border-radius: 15px;
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+              "
+              class="img"
+            />
+          </div>
+          <div style="margin-left: 10px">
+            <div>
+              <div>
+                <div style="display: flex">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-calendar-week"
+                      viewBox="0 0 16 16"
+                      style="color: #1a699e"
+                    >
+                      <path
+                        d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"
+                      />
+                      <path
+                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="date font" style="color: #535876">
+                    14 thg 8, 2050
+                  </div>
+                </div>
+                <div class="font">
+                  <p class="comment">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Odio, voluptate.
+                  </p>
+                </div>
+                <div style="display: flex">
+                  <a href="#" style="text-decoration: none; color: #1a699e"
+                    ><div style="display: flex; align-items: center">
+                      <p class="font">Xem thêm</p>
+                      <div>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-right"
+                          viewBox="0 0 16 16"
+                          style="margin-left: 5px; margin-top: 1px"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
+    <script>
+      fetch("https://jsa44.nextgentra.com/api/posts?populate=*", {
+        headers: {
+          Authorization:
+            "Bearer 1a3b0df53c752e2ca1b20d8b3445fd68b9a21ab2417c1bfd62ccd9efb576a6387a33b15370eb42cf121e6bb54c13bb84b40ab462de97bc2a0d3a2da0082c6b2a1374848ae02520a8b9ad978b660fda2d141c996fd285df97f2811379c9d4f76392f96fd4a1e0902fe51eaf3d5b17ef7a0775e1b022291722a7b1a8c476f9b523",
+        },
+      })
+        .then(function (response) {
+          if (!response.ok)
+            throw new Error("Lỗi khi gọi API: " + response.status);
+          return response.json();
+        })
+        .then(function (data) {
+          console.log(data.data);
+          img = data.data[0].image.url
+
+          
+        })
+        .catch(function (err) {
+          errorDiv.textContent = err.message;
+        });
+
+        
+    </script>
+  </body>
 </html>
