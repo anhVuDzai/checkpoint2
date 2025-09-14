@@ -29,15 +29,47 @@
           "
         ></div>
       </div>
-      <div style="display: flex; justify-content: center">
-        <div style="width: 400px; height: 300px; margin: 20px">
-          <div>
+      <div
+        class="showInfo"
+        style="display: flex; justify-content: center"
+      ></div>
+    </div>
+    <script>
+      var showInfo = document.querySelector(".showInfo");
+
+      function fetchPosts(){
+        var url = 'https://jsa44.nextgentra.com/api/posts?populate=*';
+      }
+      fetch("https://jsa44.nextgentra.com/api/posts?populate=*", {
+        headers: {
+          Authorization:
+            "Bearer 1a3b0df53c752e2ca1b20d8b3445fd68b9a21ab2417c1bfd62ccd9efb576a6387a33b15370eb42cf121e6bb54c13bb84b40ab462de97bc2a0d3a2da0082c6b2a1374848ae02520a8b9ad978b660fda2d141c996fd285df97f2811379c9d4f76392f96fd4a1e0902fe51eaf3d5b17ef7a0775e1b022291722a7b1a8c476f9b523",
+        },
+      })
+        .then(function (response) {
+          if (!response.ok)
+            throw new Error("Lỗi khi gọi API: " + response.status);
+          return response.json();
+        })
+        .then(function (data) {
+          console.log(data);
+          for (let i = 0; i < data.data.length; i++) {
+            imgUrl = data.data[i].image.url;
+            img = "https://jsa44.nextgentra.com" + imgUrl;
+            date = new Date(data.data[i].publishedAt);
+            day = date.getDate();
+            month = date.getMonth() + 1;
+            year = date.getFullYear();
+            comment = data.data[i].title;
+            console.log(date);
+            showInfo.innerHTML += `<div style="width: 350px; height: 300px; margin: 20px">
+          <div style="max-height: 150px; margin-bottom: 5px">
             <img
-              src="rocknroll.png"
+              src="${img}"
               alt=""
               style="
-                max-height: 50%;
-                max-width: 400px;
+                max-height: 150px;
+                width: 350px;
                 border-radius: 15px;
                 border-bottom-left-radius: 0px;
                 border-bottom-right-radius: 0px;
@@ -68,13 +100,12 @@
                     </svg>
                   </div>
                   <div class="date font" style="color: #535876">
-                    14 thg 8, 2050
+                    ${day} thg ${month}, ${year}
                   </div>
                 </div>
                 <div class="font">
                   <p class="comment">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Odio, voluptate.
+                    ${comment}
                   </p>
                 </div>
                 <div style="display: flex">
@@ -103,32 +134,13 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <script>
-      fetch("https://jsa44.nextgentra.com/api/posts?populate=*", {
-        headers: {
-          Authorization:
-            "Bearer 1a3b0df53c752e2ca1b20d8b3445fd68b9a21ab2417c1bfd62ccd9efb576a6387a33b15370eb42cf121e6bb54c13bb84b40ab462de97bc2a0d3a2da0082c6b2a1374848ae02520a8b9ad978b660fda2d141c996fd285df97f2811379c9d4f76392f96fd4a1e0902fe51eaf3d5b17ef7a0775e1b022291722a7b1a8c476f9b523",
-        },
-      })
-        .then(function (response) {
-          if (!response.ok)
-            throw new Error("Lỗi khi gọi API: " + response.status);
-          return response.json();
-        })
-        .then(function (data) {
-          console.log(data.data);
-          img = data.data[0].image.url
-
-          
+        </div>`;
+          }
         })
         .catch(function (err) {
           errorDiv.textContent = err.message;
         });
-
-        
+        fetchPosts();
     </script>
   </body>
 </html>
