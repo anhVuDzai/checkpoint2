@@ -1,3 +1,7 @@
 .font {
     font-family:'Gill Sans', sans-serif;
 }
+
+.showInfo {
+    border-radius: 0px;
+}
